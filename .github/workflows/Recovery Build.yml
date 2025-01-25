@@ -14,7 +14,7 @@ on:
       DEVICE_TREE_URL:
         description: 'DEVICE_TREE_URL'
         required: true
-        default: '${{ secrets.GITHUB_TOKEN }}/MOBX-PROJECTS/device_xiaomi_sapphire-recovery'
+        default: 'https://github.com/MOBX-PROJECTS/device_xiaomi_sapphire-recovery'
       DEVICE_TREE_BRANCH:
         description: 'DEVICE_TREE_BRANCH'
         required: true
@@ -111,6 +111,8 @@ jobs:
         echo "workspace-folder=$(pwd)" >> $GITHUB_OUTPUT
         git config --global user.name "c3eru"
         git config --global user.email "yyprjkt@gmail.com"
+        echo $GH >> ~/.git-credentials
+        git config --global credential.helper store --file=~/.git-credentials
         repo init --depth=1 -u ${{ github.event.inputs.MANIFEST_URL }} -b ${{ github.event.inputs.MANIFEST_BRANCH }}
       id: pwd
 
