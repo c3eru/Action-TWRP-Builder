@@ -111,7 +111,7 @@ jobs:
         echo "workspace-folder=$(pwd)" >> $GITHUB_OUTPUT
         git config --global user.name "c3eru"
         git config --global user.email "yyprjkt@gmail.com"
-        echo $GH >> ~/.git-credentials
+        echo ${{ secrets.GH }} >> ~/.git-credentials
         git config --global credential.helper store --file=~/.git-credentials
         repo init --depth=1 -u ${{ github.event.inputs.MANIFEST_URL }} -b ${{ github.event.inputs.MANIFEST_BRANCH }}
       id: pwd
