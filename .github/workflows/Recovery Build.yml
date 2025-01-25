@@ -14,7 +14,7 @@ on:
       DEVICE_TREE_URL:
         description: 'DEVICE_TREE_URL'
         required: true
-        default: 'https://github.com/MOBX-PROJECTS/device_xiaomi_sapphire-recovery'
+        default: '${{ secrets.GITHUB_TOKEN }}/MOBX-PROJECTS/device_xiaomi_sapphire-recovery'
       DEVICE_TREE_BRANCH:
         description: 'DEVICE_TREE_BRANCH'
         required: true
